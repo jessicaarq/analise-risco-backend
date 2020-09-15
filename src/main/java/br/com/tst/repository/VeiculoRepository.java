@@ -1,36 +1,12 @@
 package br.com.tst.repository;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import br.com.tst.domain.Veiculo;
+import org.springframework.stereotype.Repository;
 
-@Component
-public class VeiculoRepository{
-	
-	@Autowired 
-	private VeiculoTable table;
-	
-	public Veiculo save ( Veiculo veiculo ) {
-		VeiculoTable.getInstance().getRecords().add( veiculo );
-		int i = VeiculoTable.getInstance().getRecords().indexOf( veiculo );
-		Long id = Long.parseLong( String.valueOf( i ) );
-		veiculo.setId(id);
-		return veiculo; 
-		
-	}
 
-	public void delete ( Veiculo veiculo ) {
-	}
+@Repository
+public interface VeiculoRepository extends JpaRepository<Veiculo, Integer> {
 
-	public Veiculo update ( Veiculo veiculo ) {
-		return null;
-	}
-	
-	public List<Veiculo> findAll ( ) {
-		return VeiculoTable.getInstance().getRecords();
-	}
-	
 }

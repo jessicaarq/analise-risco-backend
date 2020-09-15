@@ -44,4 +44,13 @@ public class ErrorVM implements Serializable {
         }
         violations.put(key, value);
     }
+
+    public void setMessage(String validation_failed) {
+    }
+
+    public void setPath(String requestURI) {
+    }
+
+    public void setTrace(String toString) {
+    }
 }
